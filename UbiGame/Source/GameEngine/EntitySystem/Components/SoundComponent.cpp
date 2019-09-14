@@ -3,9 +3,12 @@
 using namespace GameEngine;
 
 SoundComponent::SoundComponent()
+
 	: m_soundManager()
 {
 	m_soundManager = std::make_unique<SoundManager>(1); // Be default each sound manager can play 1 sound at a time
+	m_soundManager -> PlaySound(LoadSoundFromFile("Resources/audio/twang.wav"), false);
+
 }
 
 

@@ -21,32 +21,32 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1C612ACF-48DE-480E-AE0D-6C444B86ABCF}</ProjectGuid>
     <RootNamespace>UbiGame</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -148,6 +148,7 @@
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\CollidableComponent.cpp" />
     <ClCompile Include="Source\GameEngine\Util\CollisionManager.cpp" />
     <ClCompile Include="Source\GameEngine\Util\SoundManager.cpp" />
+    <ClCompile Include="Source\Game\Components\PlayerMovementComponent.cpp" />
     <ClCompile Include="Source\Game\GameBoard.cpp" />
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\RenderComponent.cpp" />
     <ClCompile Include="Source\GameEngine\EntitySystem\Component.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\CollidableComponent.h" />
     <ClInclude Include="Source\GameEngine\Util\CollisionManager.h" />
     <ClInclude Include="Source\GameEngine\Util\SoundManager.h" />
+    <ClInclude Include="Source\Game\Components\PlayerMovementComponent.h" />
     <ClInclude Include="Source\Game\GameBoard.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\RenderComponent.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Component.h" />
@@ -175,6 +177,9 @@
     <ClInclude Include="Source\GameEngine\GameEngineMain.h" />
     <ClInclude Include="Source\GameEngine\Util\TextureManager.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\gear1.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

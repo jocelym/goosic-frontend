@@ -11,12 +11,21 @@ namespace GameEngine
 		enum type
 		{
 			None = -1,
+			Player,
+			Player1,
+			Player2,
+			Player3,
 			Count,
 		};
 	}	
 
 	inline const char* GetPath(eTexture::type texture)
 	{
+		switch (texture) {
+		case eTexture::Player: return "gears-blue.png";
+		case eTexture::Player2: return "gears-red.png";
+		case eTexture::Player3: return "gears-yellow.png";
+		}
 		return "UnknownTexType";
 	}
 

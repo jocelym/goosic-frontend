@@ -1,2 +1,2 @@
-#TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
-Release|x64|D:\UbiGameHackTheNorth2019\UbiGame_Blank\|
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v142:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0
+Release|x64|C:\Users\kevin\Desktop\UbiGame_Blank\|

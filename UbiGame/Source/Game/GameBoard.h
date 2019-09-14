@@ -15,6 +15,7 @@ namespace Game
 		GameBoard();
 		virtual ~GameBoard();
 
+		void CreatePlayer(float x, int a);
 
 		void Update();		
 		bool IsGameOver() { return false; }
