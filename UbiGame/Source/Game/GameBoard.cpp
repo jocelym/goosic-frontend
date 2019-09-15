@@ -18,6 +18,10 @@ static int point = 0;
 static int nextIndex = 0;
 static int data[] = { 0, 100, 200 , 500, 750, 1005, 1600, 2000};
 static int column[] = { 1, 3, 2 , 1, 2, 3, 2, 1, 1, 2, 3, 1};
+static bool a_pressed = true;
+static bool s_pressed = true;
+static bool d_pressed = true;
+static std::vector<Entity> dots;
 
 GameBoard::GameBoard()
 	
@@ -71,6 +75,7 @@ void GameBoard::Update()
 {	
 	auto t1 = std::chrono::high_resolution_clock::now();
 	if (point >= data[nextIndex] && point <= data[nextIndex]+1900) {
+
 		CreatePlayer(140 * column[nextIndex] - 25, column[nextIndex]);
 		nextIndex++;
 		auto t2 = std::chrono::high_resolution_clock::now();
@@ -82,5 +87,17 @@ void GameBoard::Update()
 		point++;
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		a_pressed = true;
+	}
+	else
+	{
+		if (a_pressed)
+		{
+			a_pressed = false;
+		}
+	}
 
 }
+void GameBoard:: 

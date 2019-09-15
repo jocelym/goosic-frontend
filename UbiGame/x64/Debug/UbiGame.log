@@ -1,11 +1,1 @@
-﻿  PlayerSoundComponent.cpp
-  UbiGame.vcxproj -> D:\Projects\HackTheNorth\UbiGame\x64\Debug\UbiGame.exe
-  UbiGame.vcxproj -> D:\Projects\HackTheNorth\UbiGame\x64\Debug\UbiGame.pdb (Partial PDB)
-  D:\Projects\HackTheNorth\UbiGame\UbiGame\Resources\img\bg.png
-  D:\Projects\HackTheNorth\UbiGame\UbiGame\Resources\img\Flappy.png
-  D:\Projects\HackTheNorth\UbiGame\UbiGame\Resources\img\particles.png
-  D:\Projects\HackTheNorth\UbiGame\UbiGame\Resources\img\player.png
-  D:\Projects\HackTheNorth\UbiGame\UbiGame\Resources\img\tileset.png
-  D:\Projects\HackTheNorth\UbiGame\UbiGame\Resources\snd\glassBreak.wav
-  D:\Projects\HackTheNorth\UbiGame\UbiGame\Resources\snd\thunder.wav
-  7 File(s) copied
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.Cpp.Platform.targets(57,5): error MSB8020: The build tools for v142 (Platform Toolset = 'v142') cannot be found. To build using the v142 build tools, please install v142 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".
