@@ -7,6 +7,11 @@
 
 using namespace Game;
 
+static bool a_pressed = true;
+static bool s_pressed = true;
+static bool d_pressed = true;
+static bool shouldMove = true;
+
 PlayerMovementComponent::PlayerMovementComponent()
 	: m_lastFaceIndex(0)
 	, m_wasFaceSwapButtonPressed(false)
@@ -37,10 +42,19 @@ void PlayerMovementComponent::Update()
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
 	//player Velocity is applied when we have some input (for the time being let's make it 10pixels a second)
 	float playerVel = 100.f;
-	
+
+	if (shouldMove) {
 		wantedVel.y += playerVel * dt;
-	
+	}
 
 	//Update the entity position with new velocity
 	GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
+
+	if (GetEntity()->GetPos().y > 500) {
+		//loser lol
+		// exit(1);
+	}
+	else {
+		
+	}
 }

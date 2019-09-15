@@ -31,6 +31,8 @@ GameEngineMain::GameEngineMain()
 
 	CameraManager::GetInstance()->GetCameraView().setCenter(sf::Vector2f(WINDOW_WIDTH / 2.f, WINDOW_HEIGHT / 2.f));
 	CameraManager::GetInstance()->GetCameraView().setSize(sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT));
+
+	std::cout << "\n" << WINDOW_WIDTH << " " << WINDOW_HEIGHT << "\n";
 }
 
 

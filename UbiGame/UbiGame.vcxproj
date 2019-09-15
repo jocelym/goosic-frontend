@@ -181,6 +181,9 @@
   <ItemGroup>
     <Image Include="Resources\gear1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resources\data\twang.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

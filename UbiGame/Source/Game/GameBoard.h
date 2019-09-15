@@ -7,7 +7,7 @@
 namespace Game
 {
 	//Used for storing and controling all game related entities, as well as providing an entry point for the "game" side of application	
-	class PlayerEntity;	
+	class PlayerEntity;
 
 	class GameBoard
 	{
@@ -17,7 +17,7 @@ namespace Game
 
 		void CreatePlayer(float x, int a);
 
-		void Update();		
+		void Update();
 		bool IsGameOver() { return false; }
 
 	private:
@@ -26,4 +26,3 @@ namespace Game
 		GameEngine::Entity* m_player;
 	};
 }
-
