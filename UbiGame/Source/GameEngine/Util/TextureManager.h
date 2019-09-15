@@ -15,6 +15,7 @@ namespace GameEngine
 			Player1,
 			Player2,
 			Player3,
+			Background,
 			Count,
 		};
 	}	
@@ -25,6 +26,7 @@ namespace GameEngine
 		case eTexture::Player: return "gears-blue.png";
 		case eTexture::Player2: return "gears-red.png";
 		case eTexture::Player3: return "gears-yellow.png";
+		case eTexture::Background: return "background.png";
 		}
 		return "UnknownTexType";
 	}

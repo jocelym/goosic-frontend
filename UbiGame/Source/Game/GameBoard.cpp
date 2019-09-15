@@ -36,6 +36,36 @@ GameBoard::~GameBoard()
 
 }
 
+void GameBoard::Update()
+{
+	auto t1 = std::chrono::high_resolution_clock::now();
+	if (point >= data[nextIndex] && point <= data[nextIndex] + 1900) {
+
+		CreatePlayer(140 * column[nextIndex] - 25, column[nextIndex]);
+		nextIndex++;
+		auto t2 = std::chrono::high_resolution_clock::now();
+
+		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+		std::cout << duration << "\n";
+	}
+	else {
+		point++;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		a_pressed = true;
+	}
+	else
+	{
+		if (a_pressed)
+		{
+			a_pressed = false;
+		}
+	}
+
+}
+
 void GameBoard::CreatePlayer(float x, int a) {
 	m_player = new GameEngine::Entity();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
@@ -65,6 +95,15 @@ void GameBoard::CreatePlayer(float x, int a) {
 	//move the box
 	if (a == 0) {
 		m_player->AddComponent<SoundComponent>();
+
+		//create bg
+		m_player = new GameEngine::Entity();
+		GameEngine::SpriteRenderComponent* spriteRender = static_cast<GameEngine::SpriteRenderComponent*>
+			(m_player->AddComponent<GameEngine::SpriteRenderComponent>());
+
+		spriteRender->SetFillColor(sf::Color::Transparent);
+		spriteRender->SetTexture(GameEngine::eTexture::Player);
+		//bg done
 	}
 	else {
 		m_player->AddComponent<PlayerMovementComponent>();
