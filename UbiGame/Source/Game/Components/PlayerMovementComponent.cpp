@@ -7,10 +7,10 @@
 
 using namespace Game;
 
-static bool a_pressed = true;
-static bool s_pressed = true;
-static bool d_pressed = true;
-bool shouldMove = true;
+bool a_pressed = false;
+bool s_pressed = false;
+bool d_pressed = false;
+static int pointCount;
 
 PlayerMovementComponent::PlayerMovementComponent()
 	: m_lastFaceIndex(0)
@@ -43,32 +43,32 @@ void PlayerMovementComponent::Update()
 	//player Velocity is applied when we have some input (for the time being let's make it 10pixels a second)
 	float playerVel = 100.f;
 
-	//if (shouldMove) {
-		wantedVel.y += playerVel * dt;
-	//}
+	//desired pos
+	wantedVel.y += playerVel * dt;
 
 	//Update the entity position with new velocity
 	GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 
-	if (GetEntity()->GetPos().y > 450) {
-		GetEntity()->SetSize(sf::Vector2f(70.f, 70.f));
+	if (GetEntity()->GetPos().y > 500) {
+		//Beyond bottom frame
 	}
 	else {
 		if (GetEntity()->GetPos().y > 400) {
-			//should delete
-
+			//at bottom
 			//left
-			if (GetEntity()->GetPos().x > (140 * 1 - 25)-20 && GetEntity()->GetPos().x > (140 * 1 - 25) + 20) {
+			if (GetEntity()->GetPos().x == (140 * 1 - 25)) {
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 				{
 					a_pressed = true;
 				}
 				else
 				{
-					 if (a_pressed)
-					{
+					if (a_pressed){
 						a_pressed = false;
-						//delete it
+						//plus point
+						pointCount++;
+						//sf::Vector2f wantedVel = sf::Vector2f(10000.f, 10000.f);
+						//GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 					}
 				}
 			}
@@ -80,25 +80,31 @@ void PlayerMovementComponent::Update()
 				}
 				else
 				{
-					 if (s_pressed)
+					if (s_pressed)
 					{
 						s_pressed = false;
-						//delete it
+						//plus point
+						pointCount++;
+						//sf::Vector2f wantedVel = sf::Vector2f(10000.f, 10000.f);
+						//GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 					}
 				}
 			}
 			//right
-			if (GetEntity()->GetPos().x > (140 * 3 - 25) - 20 && GetEntity()->GetPos().x > (140 * 3 - 25) + 20) {
+			if (GetEntity()->GetPos().x == (140 * 3 - 25)) {
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 				{
 					d_pressed = true;
 				}
 				else
 				{
-					 if (d_pressed)
+					if (d_pressed)
 					{
 						d_pressed = false;
-						//delete it
+						//plus point
+						pointCount++;
+						//sf::Vector2f wantedVel = sf::Vector2f(10000.f, 10000.f);
+						//GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 					}
 				}
 			}
