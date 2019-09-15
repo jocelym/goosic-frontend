@@ -62,7 +62,7 @@ GameBoard::~GameBoard()
 
 void GameBoard::Update()
 {
-	if (std::time(nullptr) - 3.1 >= timer && !isPlaying) {
+	if (std::time(nullptr) + 13.1 >= result && !isPlaying) {
 		soundCompon->PlaySound(soundId, false);
 		isPlaying = true;
 	}

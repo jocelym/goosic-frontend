@@ -4,6 +4,7 @@
 #include "GameEngine\EntitySystem\Components\SpriteRenderComponent.h"
 
 #include <SFML/Window/Keyboard.hpp>
+#include <iostream>
 
 using namespace Game;
 
@@ -50,8 +51,8 @@ void PlayerMovementComponent::Update()
 	//Update the entity position with new velocity
 	GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 
-	if (GetEntity()->GetPos().y > 450) {
-		GetEntity()->SetSize(sf::Vector2f(70.f, 70.f));
+	if (GetEntity()->GetPos().y > 350 && GetEntity()->GetSize().y != 100.f) {
+		GetEntity()->SetSize(sf::Vector2f(100.f, 100.f));
 	}
 	else {
 		if (GetEntity()->GetPos().y > 400) {
