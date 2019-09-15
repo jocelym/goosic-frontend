@@ -54,60 +54,57 @@ void PlayerMovementComponent::Update()
 		GetEntity()->SetSize(sf::Vector2f(100.f, 100.f));
 	}
 	else {
-		if (GetEntity()->GetPos().y > 400) {
+		if (GetEntity()->GetPos().y > 400 && GetEntity()->GetPos().y < 520) {
 			//at bottom
 			//left
-			if (GetEntity()->GetPos().x == (140 * 1 - 25)) {
+			if (GetEntity()->GetPos().x < 113 ) {
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 				{
 					a_pressed = true;
 				}
-				else
-				{
-					if (a_pressed){
-						a_pressed = false;
-						//plus point
-						pointCount++;
-						//sf::Vector2f wantedVel = sf::Vector2f(10000.f, 10000.f);
-						//GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
-					}
+				else if (a_pressed){
+					a_pressed = false;
+					//plus point
+					pointCount++;
+					std::cout << "Score: " << pointCount << "\n";
+					//sf::Vector2f wantedVel = sf::Vector2f(10000.f, 10000.f);
+					//GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
+					
 				}
 			}
 			//center
-			if (GetEntity()->GetPos().x == (140 * 2 - 25)) {
+			if (GetEntity()->GetPos().x > (113) && GetEntity()->GetPos().x < (226)) {
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 				{
 					s_pressed = true;
 				}
-				else
+				else if (s_pressed)
 				{
-					if (s_pressed)
-					{
-						s_pressed = false;
-						//plus point
-						pointCount++;
-						//sf::Vector2f wantedVel = sf::Vector2f(10000.f, 10000.f);
-						//GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
-					}
+					s_pressed = false;
+					//plus point
+					pointCount++;
+					std::cout << "Score: " << pointCount << "\n";
+					//sf::Vector2f wantedVel = sf::Vector2f(10000.f, 10000.f);
+					//GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 				}
+				
 			}
 			//right
-			if (GetEntity()->GetPos().x == (140 * 3 - 25)) {
+			if (GetEntity()->GetPos().x > 226) {
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 				{
 					d_pressed = true;
 				}
-				else
+				else if (d_pressed)
 				{
-					if (d_pressed)
-					{
-						d_pressed = false;
-						//plus point
-						pointCount++;
-						//sf::Vector2f wantedVel = sf::Vector2f(10000.f, 10000.f);
-						//GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
-					}
+					d_pressed = false;
+					//plus point
+					pointCount++;
+					std::cout << "Score: " << pointCount << "\n";
+					//sf::Vector2f wantedVel = sf::Vector2f(10000.f, 10000.f);
+					//GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 				}
+				
 			}
 		}
 	}

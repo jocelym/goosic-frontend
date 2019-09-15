@@ -21,7 +21,7 @@ static int point = 0;
 static int nextIndex = 0;
 
 std::time_t result = std::time(nullptr);
-float timer = std::mktime(std::localtime(&result));
+float timer;
 static std::vector<int> data;
 static std::vector<int> column;
 static std::vector<float> prog;
@@ -32,7 +32,7 @@ static bool d_pressed = true;
 static std::vector<Entity> dots;
 static GameEngine::SoundComponent* soundCompon;
 static int soundId;
-static std::string song = "twang";
+static std::string song = "deadmau5";
 static bool isPlaying = false;
 
 GameBoard::GameBoard()
@@ -44,14 +44,17 @@ GameBoard::GameBoard()
 	std::ifstream readFile("Resources/data/"+song+".txt");
 	
 	int a, b;
+	float balance = 0.0;
 	while (readFile >> a >> b)
 	{
-		data.push_back(a/147);
+		data.push_back(a/(147+balance));
+		balance += 0.1;
 		column.push_back(b);
 		prog.push_back(INT_MAX);
 	}
 
 	CreatePlayer(0, 0);
+	timer = std::mktime(std::localtime(&result));
 }
 
 
@@ -62,7 +65,7 @@ GameBoard::~GameBoard()
 
 void GameBoard::Update()
 {
-	if (std::time(nullptr) + 13.1 >= result && !isPlaying) {
+	if (std::time(nullptr) - 37 >= result && !isPlaying) {
 		soundCompon->PlaySound(soundId, false);
 		isPlaying = true;
 	}
