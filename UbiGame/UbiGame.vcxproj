@@ -182,7 +182,12 @@
     <Image Include="Resources\gear1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Resources\data\deadmau5.txt" />
     <Text Include="Resources\data\twang.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\audio\deadmau5.wav" />
+    <Media Include="Resources\audio\twang.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

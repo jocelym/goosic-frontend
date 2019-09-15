@@ -1,10 +1,26 @@
 ﻿  GameBoard.cpp
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(24,13): warning C4244:  'initializing': conversion from 'time_t' to 'float', possible loss of data
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(51,25): warning C4305:  'argument': truncation from 'int' to '_Ty'
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(51,25): warning C4305:         with
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(51,25): warning C4305:         [
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(51,25): warning C4305:             _Ty=float
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(51,25): warning C4305:         ]
 C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(73,43): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(74,35): warning C4244:  '=': conversion from 'time_t' to '_Ty', possible loss of data
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(74,35): warning C4244:         with
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(74,35): warning C4244:         [
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(74,35): warning C4244:             _Ty=float
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(74,35): warning C4244:         ]
+C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Source\Game\GameBoard.cpp(126,75): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
   UbiGame.vcxproj -> C:\Users\kevin\Desktop\goosic-frontend\x64\Debug\UbiGame.exe
+  C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\audio\deadmau5.mp3
+  C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\audio\deadmau5.wav
   C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\audio\twang.wav
+  C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\data\deadmau5.txt
   C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\data\twang.txt
   C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\img\background.png
   C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\img\gears-blue.png
   C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\img\gears-red.png
   C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\img\gears-yellow.png
-  6 File(s) copied
+  C:\Users\kevin\Desktop\goosic-frontend\UbiGame\Resources\img\mp3logo.jpg
+  10 File(s) copied

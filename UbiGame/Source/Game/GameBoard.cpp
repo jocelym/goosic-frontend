@@ -20,35 +20,37 @@ using namespace Game;
 static int point = 0;
 static int nextIndex = 0;
 
-//std::time_t result = std::time(nullptr);
-//int timer = std::mktime(std::localtime(&result));
+std::time_t result = std::time(nullptr);
+float timer = std::mktime(std::localtime(&result));
 static std::vector<int> data;
 static std::vector<int> column;
+static std::vector<float> prog;
+static std::vector<GameEngine::Entity*> notes;
 static bool a_pressed = true;
 static bool s_pressed = true;
 static bool d_pressed = true;
 static std::vector<Entity> dots;
+static GameEngine::SoundComponent* soundCompon;
+static int soundId;
+static std::string song = "twang";
+static bool isPlaying = false;
 
 GameBoard::GameBoard()
 
 	: m_player(nullptr)
-{	
+{
+	CreatePlayer(-1, -1);
 
-	std::ifstream readFile("Resources/data/twang.txt");
+	std::ifstream readFile("Resources/data/"+song+".txt");
 	
 	int a, b;
 	while (readFile >> a >> b)
 	{
-		std::cout << a;
 		data.push_back(a/147);
 		column.push_back(b);
+		prog.push_back(INT_MAX);
 	}
 
-	std::cout << data.size();
-
-	for (int d = 0; d < data.size(); d++) {
-		std::cout << d;
-	}
 	CreatePlayer(0, 0);
 }
 
@@ -60,14 +62,16 @@ GameBoard::~GameBoard()
 
 void GameBoard::Update()
 {
-	//if (std::time(nullptr) - 3 >= timer) {
-	//	CreatePlayer(0, 0);
-	//	timer = -1;
-	//}
+	if (std::time(nullptr) - 3.1 >= timer && !isPlaying) {
+		soundCompon->PlaySound(soundId, false);
+		isPlaying = true;
+	}
+
 	auto t1 = std::chrono::high_resolution_clock::now();
 	if (nextIndex < data.size() && point >= data.at(nextIndex) && point <= data.at(nextIndex) + 1900) {
 
-		CreatePlayer(140 * column.at(nextIndex) - 25, column.at(nextIndex));
+		CreatePlayer(115 * column.at(nextIndex) - 55, column.at(nextIndex));
+		prog.at(nextIndex) = std::mktime(std::localtime(&result));
 		nextIndex++;
 		auto t2 = std::chrono::high_resolution_clock::now();
 
@@ -116,14 +120,32 @@ void GameBoard::CreatePlayer(float x, int a) {
 
 	//move the box
 	if (a == 0) {
-		m_player->AddComponent<SoundComponent>();
+		soundCompon = static_cast<GameEngine::SoundComponent*>
+			(m_player->AddComponent<SoundComponent>());
+
+		soundId = soundCompon->LoadSoundFromFile("Resources/audio/"+song+".wav");
 
 		//create bg
 		m_player = new GameEngine::Entity();
 		GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
 
-		m_player->SetPos(sf::Vector2f(250.f, 150.f));
-		m_player->SetSize(sf::Vector2f(500.f, 700.f));
+		m_player->SetPos(sf::Vector2f(170.f, 260.f));
+		m_player->SetSize(sf::Vector2f(340.f, 520.f));
+
+		GameEngine::SpriteRenderComponent* spriteRender = static_cast<GameEngine::SpriteRenderComponent*>
+			(m_player->AddComponent<GameEngine::SpriteRenderComponent>());
+
+		spriteRender->SetFillColor(sf::Color::Transparent);
+		spriteRender->SetTexture(GameEngine::eTexture::Background);
+		//bg done
+	}
+	else if (a == -1) {
+		//create bg
+		m_player = new GameEngine::Entity();
+		GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
+
+		m_player->SetPos(sf::Vector2f(170.f, 260.f));
+		m_player->SetSize(sf::Vector2f(340.f, 520.f));
 
 		GameEngine::SpriteRenderComponent* spriteRender = static_cast<GameEngine::SpriteRenderComponent*>
 			(m_player->AddComponent<GameEngine::SpriteRenderComponent>());
@@ -135,4 +157,7 @@ void GameBoard::CreatePlayer(float x, int a) {
 	else {
 		m_player->AddComponent<PlayerMovementComponent>();
 	}
+
+	notes.push_back(m_player);
+
 }

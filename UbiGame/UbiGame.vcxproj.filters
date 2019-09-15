@@ -139,5 +139,14 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\data\twang.txt" />
+    <Text Include="Resources\data\deadmau5.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\audio\deadmau5.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\audio\twang.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>
